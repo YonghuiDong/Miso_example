@@ -37,7 +37,7 @@ iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
 ## and 1 or 0 N15 (n11 = 9, n12 = 6 for C13, and n21 = 1, n22 = 0 for N15)
 
 iso.D <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
-                  exp.base = iso.C[,1:2], exp.iso = exp.D)
+              exp.base = iso.C[,1:2], exp.iso = exp.D)
 
 ## Generate results
 ## Two types of results are provided. A Full list and a reduced list which contains only 
