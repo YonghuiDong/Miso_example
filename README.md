@@ -27,8 +27,6 @@ library('CAMERA')
 an <- xsAnnotate(xset_g_r_g)
 an <- groupFWHM(an)
 an <- findIsotopes(an, maxcharge = 3)
-an <- groupCorr(an)
-an <- findAdducts(an,polarity="negative")
 peaklist <- getPeaklist(an)
 peaklist$isotopes <- sub("\\[.*?\\]", "", peaklist$isotopes)
 peaklist <- peaklist[peaklist$isotopes == '' | peaklist$isotopes == '[M]+', ]
