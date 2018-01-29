@@ -7,7 +7,7 @@ An efficient approach for fishing out the dual or multiple isotope labeling assi
 
 ## 2. Download
 
-You can directly download and extract this GitHub repository, and run the example in your own computer.
+You can clone or download this GitHub repositor, extract it and run the example in your own computer.
 
 ## 3. Usage
 
