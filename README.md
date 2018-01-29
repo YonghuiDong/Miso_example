@@ -22,10 +22,20 @@ Library(Miso)
 load(file = 'data/xset_g_r_g.rda')
 load(file = 'data/lcms.rda')
 
-##(3) First filtering
+##(3) deisotoping and/or deadducting (optional but recommend)
+an <- xsAnnotate(xset_g_r_g)
+an <- groupFWHM(an)
+an <- findIsotopes(an, maxcharge = 3)
+an <- groupCorr(an)
+an <- findAdducts(an,polarity="negative")
+peaklist <- getPeaklist(an)
+peaklist$isotopes <- sub("\\[.*?\\]", "", peaklist$isotopes)
+peaklist <- peaklist[peaklist$isotopes == '' | peaklist$isotopes == '[M]+', ]
+
+##(4) First filtering
 explist <- prefilter(lcms)
 
-##(4) Second filtering
+##(5) Second filtering
 ## Group C was fed with H2
 ## Here we are interested in detecting molecules labeled with 4, 3 or 2 H2 (deuterium). 
 ## n11 = 4, n12 = 2.
@@ -39,7 +49,7 @@ iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
 iso.D <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
               exp.base = iso.C[,1:2], exp.iso = exp.D)
 
-## Generate results
+##(6) Generate results
 ## Two types of results are provided. A Full list and a reduced list which contains only 
 ## one form of labeled molecules.
 
