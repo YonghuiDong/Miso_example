@@ -16,7 +16,8 @@ You can directly download and extract this GitHub repository, and run the exampl
 install.packages("Miso")
 Library(Miso)
 
-## load files, 2 files are provided in this example, one is an xcms pre-processed example: xset_g_r_g.rda, another one is a peak table.
+## load files, 2 files are provided in this example, one is an xcms pre-processed example: xset_g_r_g.rda, 
+another one is a peak table.
 
 load(file = 'data/xset_g_r_g.rda')
 load(file = 'data/lcms.rda')
