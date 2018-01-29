@@ -23,6 +23,7 @@ load(file = 'data/xset_g_r_g.rda')
 load(file = 'data/lcms.rda')
 
 ##(3) deisotoping and/or deadducting (optional but recommend)
+library('CAMERA')
 an <- xsAnnotate(xset_g_r_g)
 an <- groupFWHM(an)
 an <- findIsotopes(an, maxcharge = 3)
