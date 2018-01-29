@@ -11,12 +11,17 @@ You can directly download and extract this GitHub repository, and run the exampl
 
 ## 3. Usage
 
-> install.packages("Miso")
-> Library(Miso)
+```r
+## install stable version of Miso package
+install.packages("Miso")
+Library(Miso)
+
+## load files, 2 files are provided in this example, one is an xcms pre-processed example: xset_g_r_g.rda, another one is a peak table.
 
 load(file = 'data/xset_g_r_g.rda')
+load(file = 'data/lcms.rda')
 
-data(lcms)
+
 ## First filtering, according to the experiment design
 explist <- prefilter(lcms)
 ## Second filtering, according to the labeling patterns
