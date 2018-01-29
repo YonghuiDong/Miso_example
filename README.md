@@ -15,7 +15,7 @@ You can clone or download [this GitHub repositor](https://github.com/YonghuiDong
 
 ##(1) install stable version of Miso package
 install.packages("Miso")
-Library(Miso)
+library(Miso)
 
 ##(2) load data files, 2 files are provided in this example, one is an xcms pre-processed data, 
 ## xset_g_r_g.rda; and the other is a peak table.
