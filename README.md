@@ -1,21 +1,21 @@
 # Miso_example
-An Example
 
 
-load(file = 'data/xset_g_r_g.rda')
-
-## Description
+## 1. Description
 
 - An efficient approach for fishing out the dual or multiple isotope labeling assisted metabolomics data analytes
 
+## 2. Download
 
-## Usage
+You can directly download and extract this GitHub repository, and run the example in your own computer.
 
-Example 
+## 3. Usage
 
-```r 
-install.packages("Miso")
-Library(Miso)
+> install.packages("Miso")
+> Library(Miso)
+
+load(file = 'data/xset_g_r_g.rda')
+
 data(lcms)
 ## First filtering, according to the experiment design
 explist <- prefilter(lcms)
