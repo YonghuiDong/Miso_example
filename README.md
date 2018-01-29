@@ -19,7 +19,6 @@ Library(Miso)
 
 ##(2) load data files, 2 files are provided in this example, one is an xcms pre-processed data, 
 ## xset_g_r_g.rda; and the other is a peak table.
-
 load(file = 'data/xset_g_r_g.rda')
 load(file = 'data/lcms.rda')
 
