@@ -1,4 +1,4 @@
-# Miso_example
+# Miso Example
 
 
 ## 1. Description
