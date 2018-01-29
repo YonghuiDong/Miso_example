@@ -46,7 +46,7 @@ iso.D <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
 full_Result <- Fresult(iso.C, iso.D)
 reduced_Result <- Rresult(full_Result)
 ```
-## Attention    
+## 4. Attention    
 
 1. R memory limit error may appear during data processing especially for high resolution dataset:   
 
