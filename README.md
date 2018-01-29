@@ -56,8 +56,7 @@ This error is due to the following script:
 
 ```r
 ## In group C, we are looking for analytes labeled with 5, 4, or 3 deuteriums (H2).
-iso.C <- diso(iso1 = H2, n11 = 4, n12 = 2, exp.base = exp.B, 
-                  exp.iso = exp.C)
+iso.C <- diso(iso1 = H2, n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
 ```
 
 To solve this memory limit problem, the above script can be decomposed into 3 sub-scripts, which respectively search for analytes labled with 4, 3, and 2 deuteriums (H2).
