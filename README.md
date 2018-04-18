@@ -22,7 +22,7 @@ library(Miso)
 load(file = 'data/xset_g_r_g.rda')
 load(file = 'data/lcms.rda')
 
-##(3) deisotoping and/or deadducting (optional but recommend)
+##(3) deisotoping and/or deadducting (optional but recommended)
 library('CAMERA')
 an <- xsAnnotate(xset_g_r_g)
 an <- groupFWHM(an)
