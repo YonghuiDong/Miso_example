@@ -3,7 +3,7 @@
 
 ## 1. Description
 
-An efficient approach for fishing out the dual or multiple isotope labeling assisted metabolomics data analytes
+An efficient approach to fish out isotopically labeled analyte.
 
 ## 2. Download
 
