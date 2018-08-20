@@ -31,8 +31,11 @@ peaklist <- getPeaklist(an)
 peaklist$isotopes <- sub("\\[.*?\\]", "", peaklist$isotopes)
 peaklist <- peaklist[peaklist$isotopes == '' | peaklist$isotopes == '[M]+', ]
 
-##(4) First filtering
+##(4a) First filtering: fast
 explist <- prefilter(lcms)
+
+##(4b) Alternative first filering method: more complete, but slow
+explist <- prefilter2(lcms)
 
 ##(5) Second filtering
 ## Group C was fed with H2
