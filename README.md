@@ -87,3 +87,28 @@ iso.C <- rbind(iso.C5, iso.C4, iso.C3)
 ```
 
 The decomposition step is only usually necessasy for iso.C, as the result list has been significantly reduced. we do not have to do it again for iso.D.
+
+## 5 Session Information
+
+```r
+sessionInfo()
+
+R version 3.3.3 (2017-03-06)
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+Running under: macOS  10.13.6
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] MSbox_1.1.1 Miso_0.1.3 
+
+loaded via a namespace (and not attached):
+ [1] magrittr_1.5        magick_1.6          parallel_3.3.3      tools_3.3.3        
+ [5] yaml_2.1.14         Rcpp_0.12.14        xml2_1.1.1          stringi_1.1.5      
+ [9] S4Vectors_0.12.2    knitr_1.16          stringr_1.2.0       BiocGenerics_0.20.0
+[13] stats4_3.3.3 
+```
