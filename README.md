@@ -42,6 +42,10 @@ explist <- prefilter2(lcms)
 ## Here we are interested in detecting molecules labeled with 4, 3 or 2 H2 (deuterium). 
 ## n11 = 4, n12 = 2.
 
+
+exp.B <- explist$exp.B[, -2]
+exp.C <- explist$exp.C[, -2]
+exp.D <- explist$exp.D[, -2]
 iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
 
 ## Group D was fed with C13, and N15
