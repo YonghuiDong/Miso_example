@@ -88,7 +88,7 @@ iso.C <- rbind(iso.C5, iso.C4, iso.C3)
 
 The decomposition step is only usually necessasy for iso.C, as the result list has been significantly reduced. we do not have to do it again for iso.D.
 
-## 5 Session Information
+## 5. Session Information
 
 ```r
 sessionInfo()
