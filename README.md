@@ -19,12 +19,12 @@ library(Miso)
 
 ##(2) load data files, 2 files are provided in this example, one is an xcms pre-processed data, 
 ## xset_g_r_g.rda; and the other is a peak table.
-load(file = 'data/xset_g_r_g.rda')
+load(file = 'data/xset_g_r_g_fill.rda')
 load(file = 'data/lcms.rda')
 
 ##(3) deisotoping and/or deadducting (optional but recommended)
 library('CAMERA')
-an <- xsAnnotate(xset_g_r_g)
+an <- xsAnnotate(xset_g_r_g_fill)
 an <- groupFWHM(an)
 an <- findIsotopes(an, maxcharge = 3)
 peaklist <- getPeaklist(an)
