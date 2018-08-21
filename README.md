@@ -104,11 +104,11 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] MSbox_1.1.1 Miso_0.1.3 
+[1] Miso_0.1.3
 
 loaded via a namespace (and not attached):
  [1] magrittr_1.5        magick_1.6          parallel_3.3.3      tools_3.3.3        
  [5] yaml_2.1.14         Rcpp_0.12.14        xml2_1.1.1          stringi_1.1.5      
  [9] S4Vectors_0.12.2    knitr_1.16          stringr_1.2.0       BiocGenerics_0.20.0
-[13] stats4_3.3.3 
+[13] stats4_3.3.3   
 ```
