@@ -13,16 +13,6 @@ An efficient approach to fish out isotopically labeled analyte.
 install.packages("Miso")
 library(Miso)
 
-##(2) deisotoping and/or deadducting (optional)
-
-library('CAMERA')
-an <- xsAnnotate(xset_g_r_g_fill)
-an <- groupFWHM(an)
-an <- findIsotopes(an, maxcharge = 3)
-peaklist <- getPeaklist(an)
-peaklist$isotopes <- sub("\\[.*?\\]", "", peaklist$isotopes)
-peaklist <- peaklist[peaklist$isotopes == '' | peaklist$isotopes == '[M]+', ]
-
 ##(3a) First filtering: fast
 explist <- prefilter(lcms)
 
@@ -78,6 +68,19 @@ iso.C <- rbind(iso.C5, iso.C4, iso.C3)
 ```
 
 The decomposition step is only usually necessasy for iso.C, as the result list has been significantly reduced. we do not have to do it again for iso.D.
+
+2. Optionally, users can also perform deisotoping before running Miso.
+
+```r
+##(2) deisotoping and/or deadducting (optional)
+library('CAMERA')
+an <- xsAnnotate(xset_g_r_g_fill)
+an <- groupFWHM(an)
+an <- findIsotopes(an, maxcharge = 3)
+peaklist <- getPeaklist(an)
+peaklist$isotopes <- sub("\\[.*?\\]", "", peaklist$isotopes)
+peaklist <- peaklist[peaklist$isotopes == '' | peaklist$isotopes == '[M]+', ]
+```
 
 ## 5. Session Information
 
