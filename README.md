@@ -13,13 +13,13 @@ An efficient approach to fish out isotopically labeled analyte.
 install.packages("Miso")
 library(Miso)
 
-##(3a) First filtering: fast
+##(2a) First filtering: fast
 explist <- prefilter(lcms)
 
-##(3b) Alternative first filering method: more complete, but slow
+##(2b) Alternative first filering method: more complete, but slow
 explist <- prefilter2(lcms)
 
-##(4) Second filtering
+##(3) Second filtering
 ## Group C was fed with H2
 ## Here we are interested in detecting molecules labeled with 4, 3 or 2 H2 (deuterium). 
 ## n11 = 4, n12 = 2.
@@ -36,7 +36,7 @@ iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
 iso.D <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
               exp.base = iso.C[,1:2], exp.iso = exp.D)
 
-##(5) Generate results
+##(4) Generate results
 ## Two types of results are provided. A Full list and a reduced list which contains only 
 ## one form of labeled molecules.
 
