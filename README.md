@@ -13,7 +13,7 @@ An efficient approach to fish out isotopically labeled analyte.
 install.packages("Miso")
 library(Miso)
 
-##(2) deisotoping and/or deadducting (**optional**)
+##(2) deisotoping and/or deadducting (optional)
 
 library('CAMERA')
 an <- xsAnnotate(xset_g_r_g_fill)
