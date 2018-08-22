@@ -13,12 +13,16 @@ An efficient approach to fish out isotopically labeled analyte.
 install.packages("Miso")
 library(Miso)
 
-##(2a) First filtering: fast. This approach is suitable for the the situation that the 
-## intra-sample variation is large and/or there are no replicates
+##(2a) First filtering: fast. 
+## This approach is suitable for the the situation that the intra-sample variation is large and/or there are no replicates.
+## use ?prefilter() to check all the parameters in this function
+
 explist <- prefilter(lcms)
 
-##(2b) Alternative first filering method: more complete, but slow. This approach is suitable 
-## for samples with replicates. 
+##(2b) Alternative first filering method: more complete, but slow. 
+## This approach is suitable for samples with replicates. 
+## use ?prefilter2() to check all the parameters in this function
+
 explist <- prefilter2(lcms)
 
 ##(3) Second filtering
