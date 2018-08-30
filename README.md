@@ -30,9 +30,9 @@ explist <- prefilter2(lcms)
 ## Here we are interested in detecting molecules labeled with 4, 3 or 2 H2 (deuterium). 
 ## n11 = 4, n12 = 2.
 
-exp.B <- explist$exp.B[, -2]
-exp.C <- explist$exp.C[, -2]
-exp.D <- explist$exp.D[, -2]
+exp.B <- explist$exp.B
+exp.C <- explist$exp.C
+exp.D <- explist$exp.D
 iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
 
 ## Group D was fed with C13, and N15
@@ -40,7 +40,7 @@ iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
 ## and 1 or 0 N15 (n11 = 9, n12 = 6 for C13, and n21 = 1, n22 = 0 for N15)
 
 iso.D <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
-              exp.base = iso.C[,1:2], exp.iso = exp.D)
+              exp.base = iso.C[, 1:3], exp.iso = exp.D)
 
 ##(4) Generate results
 ## Two types of results are provided. A Full list and a reduced list which contains only 
@@ -48,7 +48,12 @@ iso.D <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
 
 full_Result <- Fresult(iso.C, iso.D)
 reduced_Result <- Rresult(full_Result)
+
+##(5) plot result
+## view the first row of Full_result
+isoplot(full_Result, 1)
 ```
+
 ## 4. Attention    
 
 1. R memory limit error may appear during data processing especially for high resolution dataset:   
