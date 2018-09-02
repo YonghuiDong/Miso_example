@@ -3,13 +3,9 @@
 
 ## 1. Description
 
-An efficient approach to fish out isotopically labeled analyte.
+An R package to fish out isotopically labeled analytes using dual isotope labeling of precursor metabolites (DLEMMA) approach (Liron et al, [2009](https://pubs.acs.org/doi/10.1021/ac901495a), [2018](https://pubs.acs.org/doi/10.1021/acs.analchem.8b01644)).
 
-## 2. Download
-
-You can clone or download [this GitHub repositor](https://github.com/YonghuiDong/Miso_example.git), extract it and run the example in your own computer.
-
-## 3. Usage
+## 2. Usage
 
 ```r
 
@@ -17,35 +13,26 @@ You can clone or download [this GitHub repositor](https://github.com/YonghuiDong
 install.packages("Miso")
 library(Miso)
 
-##(2) load data files, 2 files are provided in this example, one is an xcms pre-processed data, 
-## xset_g_r_g.rda; and the other is a peak table.
-load(file = 'data/xset_g_r_g.rda')
-load(file = 'data/lcms.rda')
+##(2a) First filtering: fast. 
+## This approach is suitable for the the situation that the intra-sample variation is large and/or there are no replicates.
+## use ?prefilter() to check all the parameters in this function
 
-##(3) deisotoping and/or deadducting (optional but recommended)
-library('CAMERA')
-an <- xsAnnotate(xset_g_r_g)
-an <- groupFWHM(an)
-an <- findIsotopes(an, maxcharge = 3)
-peaklist <- getPeaklist(an)
-peaklist$isotopes <- sub("\\[.*?\\]", "", peaklist$isotopes)
-peaklist <- peaklist[peaklist$isotopes == '' | peaklist$isotopes == '[M]+', ]
-
-##(4a) First filtering: fast
 explist <- prefilter(lcms)
 
-##(4b) Alternative first filering method: more complete, but slow
+##(2b) Alternative first filering method: more complete, but slow. 
+## This approach is suitable for samples with replicates. 
+## use ?prefilter2() to check all the parameters in this function
+
 explist <- prefilter2(lcms)
 
-##(5) Second filtering
+##(3) Second filtering
 ## Group C was fed with H2
 ## Here we are interested in detecting molecules labeled with 4, 3 or 2 H2 (deuterium). 
 ## n11 = 4, n12 = 2.
 
-
-exp.B <- explist$exp.B[, -2]
-exp.C <- explist$exp.C[, -2]
-exp.D <- explist$exp.D[, -2]
+exp.B <- explist$exp.B
+exp.C <- explist$exp.C
+exp.D <- explist$exp.D
 iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
 
 ## Group D was fed with C13, and N15
@@ -53,15 +40,20 @@ iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
 ## and 1 or 0 N15 (n11 = 9, n12 = 6 for C13, and n21 = 1, n22 = 0 for N15)
 
 iso.D <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
-              exp.base = iso.C[,1:2], exp.iso = exp.D)
+              exp.base = iso.C[, 1:3], exp.iso = exp.D)
 
-##(6) Generate results
+##(4) Generate results
 ## Two types of results are provided. A Full list and a reduced list which contains only 
 ## one form of labeled molecules.
 
 full_Result <- Fresult(iso.C, iso.D)
 reduced_Result <- Rresult(full_Result)
+
+##(5) plot result
+## view the first row of Full_result
+isoplot(full_Result, 1)
 ```
+
 ## 4. Attention    
 
 1. R memory limit error may appear during data processing especially for high resolution dataset:   
@@ -87,6 +79,19 @@ iso.C <- rbind(iso.C5, iso.C4, iso.C3)
 ```
 
 The decomposition step is only usually necessasy for iso.C, as the result list has been significantly reduced. we do not have to do it again for iso.D.
+
+2. Optionally, users can also perform deisotoping before running Miso.
+
+```r
+##(2) deisotoping and/or deadducting (optional)
+library('CAMERA')
+an <- xsAnnotate(xset_g_r_g_fill)
+an <- groupFWHM(an)
+an <- findIsotopes(an, maxcharge = 3)
+peaklist <- getPeaklist(an)
+peaklist$isotopes <- sub("\\[.*?\\]", "", peaklist$isotopes)
+peaklist <- peaklist[peaklist$isotopes == '' | peaklist$isotopes == '[M]+', ]
+```
 
 ## 5. Session Information
 
