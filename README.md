@@ -51,7 +51,7 @@ iso.D <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
 ## one form of labeled molecules.
 
 full_Result <- Fresult(iso.C, iso.D)
-reduced_Result <- Rresult(full_Result)
+reduced_Result <- Rresult(full_Result, cutint = 4000)
 
 ##(5) plot result
 ## view the first row of Full_result
