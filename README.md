@@ -7,7 +7,7 @@ An R package to fish out isotopically labeled analytes using dual isotope labeli
 
 ## 2. Experiment Design & Workflow
 
-<img src="data/workflow.tif" width="400">
+
 
 ## 3. Usage
 
