@@ -23,7 +23,9 @@ Figure 1 describes **single**, **dual** and **multiple** stable isotope labeling
 <img src="Image/workflow.png" width="600">
 </p>
 
-**Figure 1**. Experimental set up for single, dual and multiple stable isotope labeling setups
+<p align="center">
+<b> Figure 1.</b>  Experimental set up for single, dual and multiple stable isotope labeling setups
+</p>
 
 ## 3. Usage
 
