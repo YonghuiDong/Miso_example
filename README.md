@@ -5,7 +5,7 @@
 
 An R package to fish out isotopically labeled analytes using dual isotope labeling of precursor metabolites (DLEMMA) approach ([Liron et al., 2018](https://pubs.acs.org/doi/10.1021/acs.analchem.8b01644); [Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092)).
 
-## 2. Experiment Design & Workflow
+## 2. Experiment Design
 
 <center><img src="Image/workflow.png" width="600"></center>
 
