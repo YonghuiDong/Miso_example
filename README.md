@@ -13,7 +13,7 @@ An R package to fish out isotopically labeled analytes using single, dual or mul
 
 (3) **Efficient**: 
 
-(4) **User-friendly**: Three different outputs are provided. (i): a full data table list, which includes a full list of isotopologues; (ii) a reduced data table list, in which only the base peaks of each isotopologues are included; (iii) the interactive plot, which allows the user to visually check the result.
+(4) **User-friendly**: Easy to use. Three different outputs are provided. (i): a full data table list, which includes a full list of isotopologues; (ii) a reduced data table list, in which only the base peaks of each isotopologues are included; (iii) the interactive plot, which allows the user to visually check the result.
 
 ## 2. Experiment Design
 
