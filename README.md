@@ -7,6 +7,8 @@ An R package to fish out isotopically labeled analytes using dual isotope labeli
 
 ## 2. Experiment Design
 
+The Figure below illustrates what single, dual and multiple stable isotope labeling experiments are.
+
 <center><img src="Image/workflow.png" width="600"></center>
 
 ## 3. Usage
