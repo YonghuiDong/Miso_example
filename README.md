@@ -7,14 +7,13 @@ An R package to fish out isotopically labeled analytes using single, dual or mul
 
 **Unique features of this package:**
 
-(1) **Fully automated**: it uses xcms set as input, and automatically process the data by taking advantage of the phenoData from xcms set object.
+(1) **Fully automated**: it uses xcms object as input, and automatically processes the data by taking advantage of the phenoData from xcms object.
 
-(2) **Flexible**: it can be applied in single, dual and multiple isotope labeling experiments without modifing any scripts; Different algorithms are used to process data with and without replicates.
+(2) **Flexible**: it can be applied to single, dual and multiple isotope labeling experiments without modifing any scripts. In addition, different algorithms are used to process data with and without replicates.
 
 (3) **Efficient**: 
 
 (4) **User-friendly**: three different outputs are provided. (i): full data table list, which includes a full list of isotopologues; (ii) reduced data table list, in which only the base peaks of the isotopologues are included; (iii) interactive plot, which allows the user to visually check the result.
-
 
 ## 2. Experiment Design
 
