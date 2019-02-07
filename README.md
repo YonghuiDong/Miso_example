@@ -7,13 +7,13 @@ An R package to fish out isotopically labeled analytes using single, dual or mul
 
 **Unique Features**
 
-(1) **Fully automated**: it uses xcms object as input, and automatically processes the data by taking advantage of the phenoData from xcms object.
+(1) **Fully automated**: It uses xcms object as input, and automatically processes the data by taking advantage of the phenoData from xcms object.
 
-(2) **Flexible**: it can be applied to single, dual and multiple isotope labeling experiments without modifing any scripts. In addition, different algorithms are used to process data with and without replicates.
+(2) **Flexible**: It enables detecting molecules labeled with various biologically relevant stable isotopes such as hydrogen (2H), carbon (13C), oxygen (18O), nitrogen (15N) and sulfur (34S). It can be applied to single, dual and multiple isotope labeling experiments without modifing any scripts. In addition, different algorithms are used to process data with and without replicates.
 
 (3) **Efficient**: 
 
-(4) **User-friendly**: three different outputs are provided. (i): a full data table list, which includes a full list of isotopologues; (ii) a reduced data table list, in which only the base peaks of each isotopologues are included; (iii) the interactive plot, which allows the user to visually check the result.
+(4) **User-friendly**: Three different outputs are provided. (i): a full data table list, which includes a full list of isotopologues; (ii) a reduced data table list, in which only the base peaks of each isotopologues are included; (iii) the interactive plot, which allows the user to visually check the result.
 
 ## 2. Experiment Design
 
