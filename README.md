@@ -3,7 +3,7 @@
 
 ## 1. Description
 
-An R package to fish out isotopically labeled analytes using single, dual or multiple isotope labeling experiment.
+An R package to fish out isotopically labeled analytes in single, dual or multiple isotope labeling experiment.
 
 **Unique Features**
 
