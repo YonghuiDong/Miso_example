@@ -17,9 +17,11 @@ An R package to fish out isotopically labeled analytes in single, dual or multip
 
 ## 2. Experiment Design
 
-The Figure below describes **single**, **dual** and **multiple** stable isotope labeling experiment. Detailed explainations regarding the experiment design and advantages of dual labeling experiments can be found in ([Liron et al., 2009](https://pubs.acs.org/doi/10.1021/ac901495a); [Liron et al., 2018](https://pubs.acs.org/doi/10.1021/acs.analchem.8b01644); [Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092))
+Figure 1 describes **single**, **dual** and **multiple** stable isotope labeling experiment. Detailed explainations regarding the experiment design and advantages of dual labeling experiments can be found in ([Liron et al., 2009](https://pubs.acs.org/doi/10.1021/ac901495a); [Liron et al., 2018](https://pubs.acs.org/doi/10.1021/acs.analchem.8b01644); [Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092))
 
 <center><img src="Image/workflow.png" width="600"></center>
+
+Figure 1. Experimental set up for single, dual and multiple stable isotope labeling setups
 
 ## 3. Usage
 
