@@ -3,11 +3,11 @@
 
 ## 1. Description
 
-An R package to fish out isotopically labeled analytes using dual isotope labeling of precursor metabolites (DLEMMA) approach ([Liron et al., 2018](https://pubs.acs.org/doi/10.1021/acs.analchem.8b01644); [Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092)).
+An R package to fish out isotopically labeled analytes using dual isotope labeling of precursor metabolites (DLEMMA) approach.
 
 ## 2. Experiment Design
 
-The Figure below illustrates what single, dual and multiple stable isotope labeling experiments are.
+The Figure below describes **single**, **dual** and **multiple** stable isotope labeling experiment. Detailed explainations regarding the experiment design and advantages of dual labeling experiments can be found in ([Liron et al., 2009](https://pubs.acs.org/doi/10.1021/ac901495a); [Liron et al., 2018](https://pubs.acs.org/doi/10.1021/acs.analchem.8b01644); [Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092))
 
 <center><img src="Image/workflow.png" width="600"></center>
 
