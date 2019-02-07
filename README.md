@@ -29,6 +29,8 @@ Figure 1 describes **single**, **dual** and **multiple** stable isotope labeling
 
 ## 3. Usage
 
+Note: the usage below is for Miso (V0.1.5). The new user manual will be released soon for version 0.2.0. 
+
 ```r
 
 ##(1) install stable version of Miso package
