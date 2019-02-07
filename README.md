@@ -3,7 +3,12 @@
 
 ## 1. Description
 
-An R package to fish out isotopically labeled analytes using dual isotope labeling of precursor metabolites (DLEMMA) approach.
+An R package to fish out isotopically labeled analytes using single, dual or multiple isotope labeling experiment.
+
+**Unique features of this package:**
+
+(1) Fully automated: it uses xcms set as input, and automatically process the data by taking advantage of the phenoData from xcms set object.
+
 
 ## 2. Experiment Design
 
