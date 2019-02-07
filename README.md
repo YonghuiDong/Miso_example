@@ -5,7 +5,7 @@
 
 An R package to fish out isotopically labeled analytes using single, dual or multiple isotope labeling experiment.
 
-**Unique features of this package:**
+**Unique Features**
 
 (1) **Fully automated**: it uses xcms object as input, and automatically processes the data by taking advantage of the phenoData from xcms object.
 
