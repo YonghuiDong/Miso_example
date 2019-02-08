@@ -3,19 +3,45 @@
 
 ## 1. Description
 
-An R package to fish out isotopically labeled analytes using dual isotope labeling of precursor metabolites (DLEMMA) approach ([Liron et al., 2018](https://pubs.acs.org/doi/10.1021/acs.analchem.8b01644); [Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092)).
+An R package to fish out isotopically labeled analytes in single, dual or multiple isotope labeling experiment.
 
-## 2. Experiment Design & Workflow
+**Features**
+
+(1) **Fully automated**: Miso uses xcms object as input, and automatically processes the data by taking advantage of the phenoData from xcms object.
+
+(2) **Flexible**: It enables detecting molecules labeled with various biologically relevant stable isotopes such as hydrogen (2H), carbon (13C), oxygen (18O), nitrogen (15N) and sulfur (34S). It can be applied to single, dual and multiple isotope labeling experiments without modifing any scripts. In addition, different algorithms are used to process the data with and without replicates.
+
+(3) **Efficient**: fast
+
+(4) **User-friendly**: Easy to use. Three different outputs are provided. (i): a full data table list, which includes a full list of isotopologues; (ii) a reduced data table list, in which only the base peaks of each isotopologues are included; (iii) the interactive plot, which allows the user to visually check the result.
+
+## 2. Experiment Design
+
+Figure 1 describes **single**, **dual** and **multiple** stable isotope labeling experiment. Detailed explainations regarding the experiment design and advantages of dual labeling experiments can be found in ([Liron et al., 2009](https://pubs.acs.org/doi/10.1021/ac901495a); [Liron et al., 2018](https://pubs.acs.org/doi/10.1021/acs.analchem.8b01644); [Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092))
+
+<p align="center"> 
+<img src="Image/workflow.png" width="600">
+</p>
+
+<p align="center">
+<b> Figure 1.</b>  Experimental set up for single, dual and multiple stable isotope labeling experiments
+</p>
+
+## 3. The Example Dataset
 
 
 
 ## 3. Usage
+
+Note: the usage below is for Miso (V0.1.5). The new user manual will be released soon for version 0.2.0. 
 
 ```r
 
 ##(1) install stable version of Miso package
 install.packages("Miso")
 library(Miso)
+
+##(2) Example 1: single labeling experiment.
 
 ##(2a) First filtering: fast. 
 ## This approach is suitable for the the situation that the intra-sample variation is large and/or there are no replicates.
