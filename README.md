@@ -50,55 +50,84 @@ devtools::install_github("YonghuiDong/Miso")
 
 ### 4.2 Turotial
 
+#### (1) load the package
+
 ```r
-##(1) load the package
 library(Miso)
+```
+#### (2) First filtering
 
-##(2) First filtering. This step first selects all the possible labeled m/z peaks by comparing the MS signals among unlabeled and two dif- ferently labeled equivalent sample groups. This step could largely improve the overall data analysis time
+This step first selects all the possible labeled m/z peaks by comparing the MS signals among unlabeled and two dif- ferently labeled equivalent sample groups. This step could largely improve the overall data analysis time
 
-## set reps = FALSE if your sample groups do not contain any replicates or you think the variations among the replicates are too large. It will use a different algorithm to process the data.
-## here we use Group B, C and D for our data analysis, and B is the unlabeled group. 
-## use ?prefilter() to check all the parameters in this function
+Set `reps = FALSE` if your sample groups do not contain any replicates or you think the variations among the replicates are too large. It will use a different algorithm to process the data.
 
+Here we use Group B, C and D for our data analysis, and B is the unlabeled group. 
+
+```r
 explist <- prefilter(lcms, subgroup = c("B", "C", "D"), unlabel = "B", reps = TRUE, p = 0.05, folds = 10)
+```
 
-##(3) Second filtering
+#### (3) Second filtering
 
-## Group C was fed with four H2 labeled tyrosine (Figure 1).
-## Here we are interested in detecting molecules labeled with 4, 3 or 2 H2 (deuterium). 
-## n11 = 4, n12 = 2.
+Next, Miso earches for the isotopologue sets according to the defined labeling patterns with preset retention time and mass error windows .
 
+(3.1) Group C was fed with four H2 labeled tyrosine (Figure 1).
+Here we are interested in detecting molecules labeled with 4, 3 or 2 H2 (n11 = 4, n12 = 2).
+
+```r
 exp.B <- explist$B
 exp.C <- explist$C
 exp.D <- explist$D
-iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
+iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C, ppm = 10, rt.dif = 6)
+```
 
-## Group D was fed with C13 and N15 labeled tyrosine (Figure 1)
-## Here we are interested in detecting molecules labeled with 9, 8, 7 or 6 C13, 
-## and 1 or 0 N15 (n11 = 9, n12 = 6 for C13, and n21 = 1, n22 = 0 for N15)
+(3.2) Group D was fed with C13 and N15 labeled tyrosine (Figure 1)
+Here we are interested in detecting molecules labeled with 9, 8, 7 or 6 C13, and 1 or 0 N15 (n11 = 9, n12 = 6 for C13, and n21 = 1, n22 = 0 for N15).
 
+```r
 iso.D <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
-              exp.base = iso.C[, 1:3], exp.iso = exp.D)
+exp.base = iso.C[, 1:3], exp.iso = exp.D, ppm = 10, rt.dif = 6)
+```
 
-##(4) Generate results
+#### (4) Generate results
 
-## Three types of results are provided. A Full list and a reduced list which contains only the base peaks of all the isotopelogues.
+Three types of results are provided. A Full list,  a reduced list which contains only the base peaks of all the isotopelogues and the interactive plot.
 
-## (4.1) Full list
+4.1) Full list
+
+```r
 full_Result <- Fresult(iso.C, iso.D)
+```
+(4.2) Reduced list
 
-##(4.2) Reduced list
+```r
 reduced_Result <- Rresult(full_Result)
+```
 
-##(4.3) Plot the result
+(4.3) Plot the result
+
+```r
 ## view the first row of Full_result
-
 isoplot(full_Result, 1)
 ```
 
+#### (5) Results
+
+The overall workflow takes approximately 2.2 min using a PC with 16 GB memory and a 3.1 GHz Intel Core i7 processor.
+
+Example of the result (from reduced list) is shown in Figure 2.
+
+<p align="center"> 
+<img src="Image/result.png" width="600">
+</p>
+
+<p align="center">
+<b> Figure 2.</b>  Example of the output table.
+</p>
 
 
-## 4. Attention    
+
+## 5. Attention    
 
 1. R memory limit error may appear during data processing especially for high resolution dataset:   
 
@@ -108,7 +137,7 @@ This error is due to the following script:
 
 ```r
 ## In group C, we are looking for analytes labeled with 5, 4, or 3 deuteriums (H2).
-iso.C <- diso(iso1 = H2, n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
+iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C, ppm = 10, rt.dif = 6)
 ```
 
 To solve this memory limit problem, the above script can be decomposed into 3 sub-scripts, which respectively search for analytes labled with 4, 3, and 2 deuteriums (H2).
@@ -137,27 +166,13 @@ peaklist$isotopes <- sub("\\[.*?\\]", "", peaklist$isotopes)
 peaklist <- peaklist[peaklist$isotopes == '' | peaklist$isotopes == '[M]+', ]
 ```
 
-## 5. Session Information
+## 5. Other Info.
 
-```r
-sessionInfo()
 
-R version 3.3.3 (2017-03-06)
-Platform: x86_64-apple-darwin13.4.0 (64-bit)
-Running under: macOS  10.13.6
+If you find Miso useful, please consider citing our work :)
 
-locale:
-[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+[1] L Feldberg, Y Dong, U Heinig, I Rogachev, A Aharoni (2018). DLEMMA-MS-imaging for identification of spatially localized metabolites and metabolic network map reconstruction. Analytical chemistry 90 (17), 10231-10238.
 
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
+[2] Y Dong, L Feldberg, A Aharoni (2019). Miso: An R Package for Multiple Isotope Labeling Assisted Metabolomics Data Analysis. Bioinformatics, btz092.
 
-other attached packages:
-[1] Miso_0.1.3
 
-loaded via a namespace (and not attached):
- [1] magrittr_1.5        magick_1.6          parallel_3.3.3      tools_3.3.3        
- [5] yaml_2.1.14         Rcpp_0.12.14        xml2_1.1.1          stringi_1.1.5      
- [9] S4Vectors_0.12.2    knitr_1.16          stringr_1.2.0       BiocGenerics_0.20.0
-[13] stats4_3.3.3   
-```
