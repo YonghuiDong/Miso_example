@@ -166,7 +166,7 @@ peaklist$isotopes <- sub("\\[.*?\\]", "", peaklist$isotopes)
 peaklist <- peaklist[peaklist$isotopes == '' | peaklist$isotopes == '[M]+', ]
 ```
 
-## 6. Please Cite.
+## 6. Please Cite
 
 
 If you find Miso useful, please consider citing our work :)
