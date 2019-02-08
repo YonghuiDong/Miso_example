@@ -34,9 +34,9 @@ The example data (`Data/lcms.rda`) provided in this example is from a dual label
 The Groups B, C and D are shown in Figure 1. More details regarding the this dataset and experimental details can be found in ([Liron et al., 2018](https://pubs.acs.org/doi/10.1021/acs.analchem.8b01644)).
 
 
-## 3. Usage
+## 4. Tutorial
 
-Note: the usage below is for Miso (V0.1.5). The new user manual will be released soon for version 0.2.0. 
+**Attention**: This tutorial is based on the Miso package version 0.2.0, which is slightly different from the one described in the publication ([Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092)), which was based on Miso version 0.1.5.
 
 ```r
 
