@@ -50,7 +50,7 @@ devtools::install_github("YonghuiDong/Miso")
 
 ### 4.2 Turotial
 
-#### (1) load the package
+#### (1) Load package
 
 ```r
 library(Miso)
