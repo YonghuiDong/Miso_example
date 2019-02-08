@@ -1,5 +1,4 @@
-# Miso Example
-
+## Miso: An R Package for Multiple Isotope Labeling Assisted Metabolomics Data Analysis
 
 ## 1. Description
 
