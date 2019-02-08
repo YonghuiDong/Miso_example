@@ -7,9 +7,9 @@ An R package to fish out isotopically labeled analytes in single, dual or multip
 
 **Features**
 
-(1) **Fully automated**: It uses xcms object as input, and automatically processes the data by taking advantage of the phenoData from xcms object.
+(1) **Fully automated**: Miso uses xcms object as input, and automatically processes the data by taking advantage of the phenoData from xcms object.
 
-(2) **Flexible**: It enables detecting molecules labeled with various biologically relevant stable isotopes such as hydrogen (2H), carbon (13C), oxygen (18O), nitrogen (15N) and sulfur (34S). It can be applied to single, dual and multiple isotope labeling experiments without modifing any scripts. In addition, different algorithms are used to process data with and without replicates.
+(2) **Flexible**: It enables detecting molecules labeled with various biologically relevant stable isotopes such as hydrogen (2H), carbon (13C), oxygen (18O), nitrogen (15N) and sulfur (34S). It can be applied to single, dual and multiple isotope labeling experiments without modifing any scripts. In addition, different algorithms are used to process the data with and without replicates.
 
 (3) **Efficient**: fast
 
@@ -27,6 +27,10 @@ Figure 1 describes **single**, **dual** and **multiple** stable isotope labeling
 <b> Figure 1.</b>  Experimental set up for single, dual and multiple stable isotope labeling experiments
 </p>
 
+## 3. Description of the Example Dataset
+
+
+
 ## 3. Usage
 
 Note: the usage below is for Miso (V0.1.5). The new user manual will be released soon for version 0.2.0. 
@@ -36,6 +40,8 @@ Note: the usage below is for Miso (V0.1.5). The new user manual will be released
 ##(1) install stable version of Miso package
 install.packages("Miso")
 library(Miso)
+
+##(2) Example 1: single labeling experiment.
 
 ##(2a) First filtering: fast. 
 ## This approach is suitable for the the situation that the intra-sample variation is large and/or there are no replicates.
