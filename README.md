@@ -34,7 +34,7 @@ The example data (`Data/lcms.rda`) provided in this example is from a dual label
 The Groups B, C and D are shown in Figure 1. More details regarding the this dataset and experimental details can be found in ([Liron et al., 2018](https://pubs.acs.org/doi/10.1021/acs.analchem.8b01644)).
 
 
-## 4. Tutorial
+## 4. Quick Start
 
 **Attention**: This tutorial is for Miso package version 0.2.0, which is slightly different from the version 0.1.5 described in the publication ([Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092)). The old versions and related turotials can be found [here](https://github.com/YonghuiDong/Miso/releases).
 
@@ -43,34 +43,34 @@ The Groups B, C and D are shown in Figure 1. More details regarding the this dat
 ```r
 ##(1) install stable version
 install.packages("Miso")
-library(Miso)
 
 ##(2) install development version
-
+devtools::install_github("YonghuiDong/Miso")
 ```
 
-##(2) Example 1: single labeling experiment.
+### 4.2 Turotial
 
-##(2a) First filtering: fast. 
-## This approach is suitable for the the situation that the intra-sample variation is large and/or there are no replicates.
+```r
+##(1) load the package
+library(Miso)
+
+##(2) First filtering. This step first selects all the possible labeled m/z peaks by comparing the MS signals among unlabeled and two dif- ferently labeled equivalent sample groups. This step could largely improve the overall data analysis time
+
+## set reps = FALSE if your sample groups do not contain any replicates or you think the variations among the replicates are too large. It will use a different algorithm to process the data.
+## here we use Group B, C and D for our data analysis, and B is the unlabeled group. 
 ## use ?prefilter() to check all the parameters in this function
 
-explist <- prefilter(lcms)
-
-##(2b) Alternative first filering method: more complete, but slow. 
-## This approach is suitable for samples with replicates. 
-## use ?prefilter2() to check all the parameters in this function
-
-explist <- prefilter2(lcms)
+explist <- prefilter(lcms, subgroup = c("B", "C", "D"), unlabel = "B", reps = TRUE, p = 0.05, folds = 10)
 
 ##(3) Second filtering
-## Group C was fed with H2
+
+## Group C was fed with four H2 labeled tyrosine (Figure 1).
 ## Here we are interested in detecting molecules labeled with 4, 3 or 2 H2 (deuterium). 
 ## n11 = 4, n12 = 2.
 
-exp.B <- explist$exp.B
-exp.C <- explist$exp.C
-exp.D <- explist$exp.D
+exp.B <- explist$B
+exp.C <- explist$C
+exp.D <- explist$D
 iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
 
 ## Group D was fed with C13, and N15
