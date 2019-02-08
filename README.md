@@ -27,7 +27,7 @@ Figure 1 describes **single**, **dual** and **multiple** stable isotope labeling
 <b> Figure 1.</b>  Experimental set up for single, dual and multiple stable isotope labeling experiments
 </p>
 
-## 3. Description of the Example Dataset
+## 3. The Example Dataset
 
 
 
