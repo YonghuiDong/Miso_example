@@ -158,7 +158,7 @@ The decomposition step is only usually necessasy for iso.C, as the result list h
 ```r
 ##(2) deisotoping and/or deadducting (optional)
 library('CAMERA')
-an <- xsAnnotate(xset_g_r_g_fill)
+an <- xsAnnotate(lcms)
 an <- groupFWHM(an)
 an <- findIsotopes(an, maxcharge = 3)
 peaklist <- getPeaklist(an)
