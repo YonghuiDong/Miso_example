@@ -172,6 +172,7 @@ peaklist <- peaklist[peaklist$isotopes == '' | peaklist$isotopes == '[M]+', ]
 If you find Miso useful, please consider citing our work :)
 
 [1] L Feldberg, Y Dong, U Heinig, I Rogachev, A Aharoni (2018). DLEMMA-MS-imaging for identification of spatially localized metabolites and metabolic network map reconstruction. Analytical chemistry 90 (17), 10231-10238.
-[2] Y Dong, L Feldberg, A Aharoni (2019). Miso: An R Package for Multiple Isotope Labeling Assisted Metabolomics Data Analysis. Bioinformatics, btz092, https://doi.org/10.1093/bioinformatics/btz092.
+
+[2] Y Dong, L Feldberg, A Aharoni (2019). Miso: An R Package for Multiple Isotope Labeling Assisted Metabolomics Data Analysis. Bioinformatics, btz092.
 
 
