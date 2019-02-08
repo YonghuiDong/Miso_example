@@ -115,7 +115,7 @@ isoplot(full_Result, 1)
 
 The overall workflow takes approximately 2.2 min using a PC with 16 GB memory and a 3.1 GHz Intel Core i7 processor.
 
-Example of the result (from reduced list):
+Example of the result (from reduced list) is shown in Figure 2.
 
 <p align="center"> 
 <img src="Image/result.png" width="600">
@@ -127,9 +127,7 @@ Example of the result (from reduced list):
 
 
 
-
-
-## 4. Attention    
+## 5. Attention    
 
 1. R memory limit error may appear during data processing especially for high resolution dataset:   
 
@@ -139,7 +137,7 @@ This error is due to the following script:
 
 ```r
 ## In group C, we are looking for analytes labeled with 5, 4, or 3 deuteriums (H2).
-iso.C <- diso(iso1 = H2, n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
+iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C, ppm = 10, rt.dif = 6)
 ```
 
 To solve this memory limit problem, the above script can be decomposed into 3 sub-scripts, which respectively search for analytes labled with 4, 3, and 2 deuteriums (H2).
@@ -168,27 +166,8 @@ peaklist$isotopes <- sub("\\[.*?\\]", "", peaklist$isotopes)
 peaklist <- peaklist[peaklist$isotopes == '' | peaklist$isotopes == '[M]+', ]
 ```
 
-## 5. Session Information
+## 5. Citation
 
-```r
-sessionInfo()
+Please consider citing  
 
-R version 3.3.3 (2017-03-06)
-Platform: x86_64-apple-darwin13.4.0 (64-bit)
-Running under: macOS  10.13.6
 
-locale:
-[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
-[1] Miso_0.1.3
-
-loaded via a namespace (and not attached):
- [1] magrittr_1.5        magick_1.6          parallel_3.3.3      tools_3.3.3        
- [5] yaml_2.1.14         Rcpp_0.12.14        xml2_1.1.1          stringi_1.1.5      
- [9] S4Vectors_0.12.2    knitr_1.16          stringr_1.2.0       BiocGenerics_0.20.0
-[13] stats4_3.3.3   
-```
