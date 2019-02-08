@@ -36,7 +36,7 @@ The Groups B, C and D are shown in Figure 1. More details regarding the this dat
 
 ## 4. Tutorial
 
-**Attention**: This tutorial is based on the Miso package version 0.2.0, which is slightly different from the one described in the publication ([Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092)), which was based on Miso version 0.1.5.
+**Attention**: This tutorial is for Miso package version 0.2.0, which is slightly different from the version 0.1.5 described in the publication ([Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092)).
 
 ```r
 
