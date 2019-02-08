@@ -118,7 +118,7 @@ The overall workflow takes approximately 2.2 min using a PC with 16 GB memory an
 Example of the result (from reduced list) is shown in Figure 2.
 
 <p align="center"> 
-<img src="Image/result.png" width="600">
+<img src="Image/result.png" width="800">
 </p>
 
 <p align="center">
