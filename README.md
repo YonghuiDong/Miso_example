@@ -29,43 +29,51 @@ Figure 1 describes **single**, **dual** and **multiple** stable isotope labeling
 
 ## 3. The Example Dataset
 
+The example data (`Data/lcms.rda`) provided in this example is from a dual labeling experiment. It consists of 5 groups: Group A (SP medium, control group), Group B (0.5 mg mL<sup>−1</sup> unlabeled tyrosine), Group C (0.5 mg mL<sup>−1</sup> tyrosine D4, Label I), Group D (0.5 mg <sup>mL−1</sup> tyrosine 13C915N1, Label II), and Group E (0.5 mg mL<sup>−1</sup> Label I + Label II). 
+
+The Groups B, C and D are shown in Figure 1. More details regarding the this dataset and experimental details can be found in ([Liron et al., 2018](https://pubs.acs.org/doi/10.1021/acs.analchem.8b01644)).
 
 
-## 3. Usage
+## 4. Quick Start
 
-Note: the usage below is for Miso (V0.1.5). The new user manual will be released soon for version 0.2.0. 
+**Attention**: This tutorial is for Miso package version 0.2.0, which is slightly different from the version 0.1.5 described in the publication ([Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092)). The old versions and related turotials can be found [here](https://github.com/YonghuiDong/Miso/releases).
+
+### 4.1 Installation
 
 ```r
-
-##(1) install stable version of Miso package
+##(1) install stable version
 install.packages("Miso")
+
+##(2) install development version
+devtools::install_github("YonghuiDong/Miso")
+```
+
+### 4.2 Turotial
+
+```r
+##(1) load the package
 library(Miso)
 
-##(2) Example 1: single labeling experiment.
+##(2) First filtering. This step first selects all the possible labeled m/z peaks by comparing the MS signals among unlabeled and two dif- ferently labeled equivalent sample groups. This step could largely improve the overall data analysis time
 
-##(2a) First filtering: fast. 
-## This approach is suitable for the the situation that the intra-sample variation is large and/or there are no replicates.
+## set reps = FALSE if your sample groups do not contain any replicates or you think the variations among the replicates are too large. It will use a different algorithm to process the data.
+## here we use Group B, C and D for our data analysis, and B is the unlabeled group. 
 ## use ?prefilter() to check all the parameters in this function
 
-explist <- prefilter(lcms)
-
-##(2b) Alternative first filering method: more complete, but slow. 
-## This approach is suitable for samples with replicates. 
-## use ?prefilter2() to check all the parameters in this function
-
-explist <- prefilter2(lcms)
+explist <- prefilter(lcms, subgroup = c("B", "C", "D"), unlabel = "B", reps = TRUE, p = 0.05, folds = 10)
 
 ##(3) Second filtering
-## Group C was fed with H2
+
+## Group C was fed with four H2 labeled tyrosine (Figure 1).
 ## Here we are interested in detecting molecules labeled with 4, 3 or 2 H2 (deuterium). 
 ## n11 = 4, n12 = 2.
 
-exp.B <- explist$exp.B
-exp.C <- explist$exp.C
-exp.D <- explist$exp.D
+exp.B <- explist$B
+exp.C <- explist$C
+exp.D <- explist$D
 iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C)
 
-## Group D was fed with C13, and N15
+## Group D was fed with C13 and N15 labeled tyrosine (Figure 1)
 ## Here we are interested in detecting molecules labeled with 9, 8, 7 or 6 C13, 
 ## and 1 or 0 N15 (n11 = 9, n12 = 6 for C13, and n21 = 1, n22 = 0 for N15)
 
@@ -73,16 +81,22 @@ iso.D <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
               exp.base = iso.C[, 1:3], exp.iso = exp.D)
 
 ##(4) Generate results
-## Two types of results are provided. A Full list and a reduced list which contains only 
-## one form of labeled molecules.
 
+## Three types of results are provided. A Full list and a reduced list which contains only the base peaks of all the isotopelogues.
+
+## (4.1) Full list
 full_Result <- Fresult(iso.C, iso.D)
-reduced_Result <- Rresult(full_Result, cutint = 4000)
 
-##(5) plot result
+##(4.2) Reduced list
+reduced_Result <- Rresult(full_Result)
+
+##(4.3) Plot the result
 ## view the first row of Full_result
+
 isoplot(full_Result, 1)
 ```
+
+
 
 ## 4. Attention    
 
