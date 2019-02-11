@@ -41,11 +41,11 @@ The Groups B, C and D are shown in Figure 1. More description of this dataset ca
 
 ### 4.1 Installation
 
-```r
-##(1) install stable version
-install.packages("Miso")
 
-##(2) install development version
+Miso v0.2.0 is currently **not available on CRAN**, install it from Github.
+
+```r
+##(1) install development version
 devtools::install_github("YonghuiDong/Miso")
 ```
 
