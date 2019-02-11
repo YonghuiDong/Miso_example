@@ -82,7 +82,7 @@ exp.D <- explist$D
 iso.C <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C, ppm = 10, rt.dif = 6)
 ```
 
-(3.2) Group D was fed with C13 and N15 labeled tyrosine (Figure 1)
+(3.2) Group D was fed with nine C13 and one N15 labeled tyrosine (Figure 1)
 Here we are interested in detecting molecules labeled with 9, 8, 7 or 6 C13, and 1 or 0 N15 (n11 = 9, n12 = 6 for C13, and n21 = 1, n22 = 0 for N15).
 
 ```r
