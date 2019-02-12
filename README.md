@@ -154,18 +154,6 @@ iso.C <- rbind(iso.C5, iso.C4, iso.C3)
 
 The decomposition step is only usually necessasy for iso.C, as the result list has been significantly reduced. we do not have to do it again for iso.D.
 
-2. Optionally, users can also perform deisotoping before running Miso.
-
-```r
-##(2) deisotoping and/or deadducting (optional)
-library('CAMERA')
-an <- xsAnnotate(lcms)
-an <- groupFWHM(an)
-an <- findIsotopes(an, maxcharge = 3)
-peaklist <- getPeaklist(an)
-peaklist$isotopes <- sub("\\[.*?\\]", "", peaklist$isotopes)
-peaklist <- peaklist[peaklist$isotopes == '' | peaklist$isotopes == '[M]+', ]
-```
 
 ## 6. Please Cite
 
