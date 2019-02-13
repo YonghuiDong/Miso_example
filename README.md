@@ -70,7 +70,7 @@ explist <- prefilter(lcms, subgroup = c("B", "C", "D"), unlabel = "B", reps = TR
 
 #### (3) Second filtering
 
-Next, Miso earches for the isotopologue sets according to the defined labeling patterns with preset retention time and mass error windows .
+Next, Miso searches for the isotopologue sets according to the defined labeling patterns with pre-defined retention time and mass error windows .
 
 (3.1) Group C was fed with four H2 labeled tyrosine (Figure 1).
 Here we are interested in detecting molecules labeled with 4, 3 or 2 H2 (n11 = 4, n12 = 2).
