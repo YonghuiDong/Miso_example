@@ -42,7 +42,7 @@ The Groups B, C and D are shown in Figure 1. More description of this dataset ca
 ### 4.1 Installation
 
 
-Miso v0.2.0 is currently **not available on CRAN**, install it from Github.
+Miso v0.2.0 is **not yet available on CRAN**, install it from Github.
 
 ```r
 ##(1) install development version
