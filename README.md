@@ -58,7 +58,7 @@ library(Miso)
 ```
 #### (2) First filtering
 
-This step first selects all the possible labeled m/z peaks by comparing the MS signals among unlabeled and two dif- ferently labeled equivalent sample groups. This step could largely improve the overall data analysis time
+This step first selects all the possible labeled m/z peaks by comparing the MS signals among unlabeled and two dif- ferently labeled equivalent sample groups. This step could largely eliminate false positives and improve the overall data analysis time.
 
 Set `reps = FALSE` if your sample groups do not contain any replicates or you think the variations among the replicates are too large. It will use a different algorithm to process the data.
 
