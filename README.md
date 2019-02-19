@@ -160,7 +160,7 @@ There are cases that a precursor-derived metabolite could be the modification of
 
 For instance, a metabolite could be [2M+H]<sup>+</sup>, where M is the precursor. if the mass difference of between labeled and unlabeld precursor is 10 (suppose 10 <sup>13</sup>C). Then the mass difference between the labeled and unlabeled metabolite will be 20 (2 * 10).
 
-The poly parameter in the diso() function is therefore used to fish out such metabolites. poly = 2 means look for dimer precursor-derived metabolites; poly = 3 for trimer derived metabolites, and so on.
+The `poly` parameter in the `diso()` function is therefore used to fish out such metabolites. `poly = 2` means to look for dimer precursor-derived metabolites; `poly = 3` for trimer derived metabolites, and so on.
 
 An example is give below:
 
