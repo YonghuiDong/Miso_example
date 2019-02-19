@@ -1,6 +1,6 @@
 ## Miso: An R Package for Multiple Isotope Labeling Assisted Metabolomics Data Analysis
 
-Last update on 2019/02/08
+Last update on 2019/02/19
 
 ## 1. Description
 
@@ -37,12 +37,12 @@ The Groups B, C and D are shown in Figure 1. More description of this dataset ca
 
 ## 4. Quick Start
 
-**Attention**: This tutorial is for Miso package version 0.2.0, which is slightly different from the version 0.1.5 described in the publication ([Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092)). The old versions and related turotials can be found [here](https://github.com/YonghuiDong/Miso/releases).
+**Attention**: This tutorial is for Miso package version 0.2.0 and above, which is slightly different from the version 0.1.5 described in the publication ([Dong et al., 2019](https://doi.org/10.1093/bioinformatics/btz092)). The old versions and related turotials can be found [here](https://github.com/YonghuiDong/Miso/releases).
 
 ### 4.1 Installation
 
 
-Miso v0.2.0 is **not yet available on CRAN**, install it from Github.
+Miso v0.2.0 and above is **not yet available on CRAN**, install it from Github.
 
 ```r
 ##(1) install development version
