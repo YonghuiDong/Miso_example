@@ -154,6 +154,21 @@ iso.C <- rbind(iso.C5, iso.C4, iso.C3)
 
 The decomposition step is only usually necessasy for iso.C, as the result list has been significantly reduced. we do not have to do it again for iso.D.
 
+2. Polymer precursor-derived metabolite.
+
+There are cases that a precursor-derived metabolite could be the modification of the dimer, trimer or even polymer of this precursor.
+
+For instance, a metabolite could be [2M+H]<sup>+</sup>, where M is the precursor. if the mass difference of between labeled and unlabeld precursor is 10 (suppose 10 <sup>13</sup>C). Then the mass difference between the labeled and unlabeled metabolite will be 20 (2 * 10).
+
+The poly parameter in the diso() function is therefore used to fish out such metabolites. poly = 2 means look for dimer precursor-derived metabolites; poly = 3 for trimer derived metabolites, and so on.
+
+An example is give below:
+
+```r
+iso.C2 <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C, ppm = 10, rt.dif = 6, poly =2)
+iso.D2 <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
+exp.base = iso.C[, 1:3], exp.iso = exp.D, ppm = 10, rt.dif = 6, poly = 2)
+```
 
 ## 6. Please Cite
 
