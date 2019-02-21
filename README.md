@@ -167,7 +167,7 @@ An example is give below:
 ```r
 iso.C2 <- diso(iso1 = 'H2', n11 = 4, n12 = 2, exp.base = exp.B, exp.iso = exp.C, ppm = 10, rt.dif = 6, poly =2)
 iso.D2 <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
-exp.base = iso.C[, 1:3], exp.iso = exp.D, ppm = 10, rt.dif = 6, poly = 2)
+exp.base = iso.C2[, 1:3], exp.iso = exp.D, ppm = 10, rt.dif = 6, poly = 2)
 ```
 
 ## 6. Please Cite
