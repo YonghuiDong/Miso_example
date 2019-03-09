@@ -4,7 +4,7 @@ Last update on 2019/02/19
 
 ## 1. Description
 
-An R package to fish out isotopically labeled analytes in single, dual or multiple isotope labeling experiment.
+An R package to fish out isotopically labeled analytes from single, dual or multiple isotope labeling experiment.
 
 **Features**
 
@@ -41,12 +41,9 @@ The Groups B, C and D are shown in Figure 1. More description of this dataset ca
 
 ### 4.1 Installation
 
-
-Miso v0.2.0 and above is **not yet available on CRAN**, install it from Github.
-
 ```r
-##(1) install development version
-devtools::install_github("YonghuiDong/Miso")
+##(1) install from CRAN
+install.packages("Miso")
 ```
 
 ### 4.2 Turotial
@@ -58,7 +55,7 @@ library(Miso)
 ```
 #### (2) First filtering
 
-This step first selects all the possible labeled m/z peaks by comparing the MS signals among unlabeled and two dif- ferently labeled equivalent sample groups. This step could largely eliminate false positives and improve the overall data analysis time.
+This step selects all the possible labeled m/z peaks by comparing the MS signals among unlabeled and two differently labeled equivalent sample groups. This step could largely eliminate false positives and improve the overall data analysis time.
 
 Set `reps = FALSE` if your sample groups do not contain any replicates or you think the variations among the replicates are too large. It will use a different algorithm to process the data.
 
@@ -70,7 +67,7 @@ explist <- prefilter(lcms, subgroup = c("B", "C", "D"), unlabel = "B", reps = TR
 
 #### (3) Second filtering
 
-Next, Miso searches for the isotopologue sets according to the defined labeling patterns with pre-defined retention time and mass error windows .
+Next, Miso searches for the isotopologue sets according to the defined labeling patterns.
 
 (3.1) Group C was fed with four H2 labeled tyrosine (Figure 1).
 Here we are interested in detecting molecules labeled with 4, 3 or 2 H2 (n11 = 4, n12 = 2).
@@ -130,7 +127,7 @@ Example of the result (from reduced list) is shown in Figure 2.
 
 ## 5. Attention    
 
-1. R memory limit error may appear during data processing especially for high resolution dataset:   
+1. R memory limit error may appear during data processing especially for high resolution dataset.   
 
 `Error: memory exhausted (limit reached?), Error during wrapup: memory exhausted (limit reached?)` 
 
