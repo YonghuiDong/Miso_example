@@ -1,6 +1,6 @@
 ## Miso: An R Package for Multiple Isotope Labeling Assisted Metabolomics Data Analysis
 
-Last update on 2019/02/19
+Last update on 2019/03/08
 
 ## 1. Description
 
