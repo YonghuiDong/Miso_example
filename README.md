@@ -41,9 +41,10 @@ The Groups B, C and D are shown in Figure 1. More description of this dataset ca
 
 ### 4.1 Installation
 
+Attention: Miso has been removed from CRAN due to its dependency package was removed from CRAN. "install.packages("Miso")" will therefore not work now.
+
 ```r
-##(1) install from CRAN
-install.packages("Miso")
+devtools::install_github("YonghuiDong/Miso")
 ```
 
 ### 4.2 Turotial
