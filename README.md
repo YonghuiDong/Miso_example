@@ -172,7 +172,7 @@ exp.base = iso.C2[, 1:3], exp.iso = exp.D, ppm = 10, rt.dif = 6, poly = 2)
 
 Although `Miso` was originally developed for tracer-based stable isotope labeling experiments, it can also be easily adapted for global stable isotope labeling.  
 
-Here I show you one example. The data is from `geoRge` R package
+Here I show you one example. The data is from [geoRge](https://github.com/jcapelladesto/geoRge) R package
 
 ```r
 #(1) load packages. Example data is from R package geoRge
