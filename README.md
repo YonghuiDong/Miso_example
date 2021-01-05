@@ -179,7 +179,7 @@ Here I show you one example. The data is from [geoRge](https://github.com/jcapel
 library(Miso)
 library(geoRge) 
 
-##(2) first filtering
+#(2) first filtering
 explist <- prefilter(mtbls213, 
                      subgroup = c("CELL_Glc12_25mM_Normo", "CELL_Glc13_25mM_Normo"), 
                      unlabel = "CELL_Glc12_25mM_Normo", 
@@ -189,8 +189,8 @@ explist <- prefilter(mtbls213,
 exp.B <- explist$CELL_Glc12_25mM_Normo
 exp.C <- explist$CELL_Glc13_25mM_Normo
 
-##(2) second filtering. Searching for 13C labeled isotopes
-## the script is not optimized, it takes about 10 min
+#(3) second filtering. Searching for 13C labeled isotopes
+## the script is not optimized, it takes about 6 min
 df = NULL
 for (i in 1: dim(exp.C)[1]) {
   exp.iso <- exp.C[i,]
