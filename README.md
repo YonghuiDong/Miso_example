@@ -168,7 +168,40 @@ iso.D2 <- diso(iso1 = 'C13', n11 = 9, n12 = 6, iso2 = 'N15', n21 = 1, n22 = 0,
 exp.base = iso.C2[, 1:3], exp.iso = exp.D, ppm = 10, rt.dif = 6, poly = 2)
 ```
 
-## 6. Please Cite
+## *6. Miso for global stable labeling
+
+Although `Miso` was originally developed for tracer-based stable isotope labeling experiments, it can also be easily adapted for global stable isotope labeling.  
+
+Here I show you one example. The data is from `geoRge` R package
+
+```r
+#(1) load packages. Example data is from R package geoRge
+library(Miso)
+library(geoRge) 
+
+##(2) first filtering
+explist <- prefilter(mtbls213, 
+                     subgroup = c("CELL_Glc12_25mM_Normo", "CELL_Glc13_25mM_Normo"), 
+                     unlabel = "CELL_Glc12_25mM_Normo", 
+                     reps = TRUE, 
+                     p = 0.05, 
+                     folds = 10)
+exp.B <- explist$CELL_Glc12_25mM_Normo
+exp.C <- explist$CELL_Glc13_25mM_Normo
+
+##(2) second filtering. Searching for 13C labeled isotopes
+## the script is not optimized, it takes about 10 min
+df = NULL
+for (i in 1: dim(exp.C)[1]) {
+  exp.iso <- exp.C[i,]
+  n11 <- floor(exp.iso$mz/13)
+  iso.C <- diso(iso1 = 'C13', n11 = n11, n12 = 3, exp.base = exp.B, exp.iso = exp.iso, ppm = 10, rt.dif = 10)
+  df <- rbind.data.frame(df, iso.C)
+}
+reduced_Result <- Rresult(df)
+```
+
+## 7. Please Cite
 
 
 If you find Miso useful, please consider citing our work :)
