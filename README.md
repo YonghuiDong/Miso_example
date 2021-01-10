@@ -41,7 +41,7 @@ The Groups B, C and D are shown in Figure 1. More description of this dataset ca
 
 ### 4.1 Installation
 
-Attention: Miso has been removed from CRAN due to its dependency package was removed from CRAN. "install.packages("Miso")" will therefore not work now.
+Attention: Miso has been removed from CRAN due to its dependency package `mzR` was removed from CRAN. "install.packages("Miso")" will therefore not work now.
 
 ```r
 devtools::install_github("YonghuiDong/Miso")
@@ -198,6 +198,9 @@ for (i in 1: dim(exp.C)[1]) {
   iso.C <- diso(iso1 = 'C13', n11 = n11, n12 = 3, exp.base = exp.B, exp.iso = exp.iso, ppm = 10, rt.dif = 10)
   df <- rbind.data.frame(df, iso.C)
 }
+
+## df is the complete result. 
+## we can also get a reduced list by removing some duplicated results
 reduced_Result <- Rresult(df)
 ```
 
